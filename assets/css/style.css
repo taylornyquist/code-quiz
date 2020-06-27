@@ -1,0 +1,82 @@
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Color Pallette Selector */
+:root {
+    --light-gray: #a6b5c5;
+    --slate: #31343a;
+    --dark-blue: #0a1a3e;
+}
+
+body {
+    background-color: var(--light-gray);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+    padding: 3% 5%;
+    background-color: var(--slate);
+}
+
+.header-items {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--light-gray);
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: var(--light-gray)
+}
+
+header ul {
+    list-style: none;
+}
+
+/* Main Section Styles */
+
+.main-wrapper {
+    margin: 10%;
+    padding: 5%;
+    background-color: var(--slate);
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    justify-content: left;
+    align-items: center;
+    display: flex;
+    color: var(--light-gray);
+    margin: 5%;
+    /* padding: 5%; */
+}
+
+.quiz-header {
+    border-bottom: 3px solid var(--light-gray);
+    padding: 0 0 10px 0;
+
+}
+
+.quiz-question li {
+    list-style: none;
+    padding: 20px;
+    margin: 20px;
+    background-color: var(--light-gray);
+    color: var(--slate);
+    font-weight: bold;
+    box-shadow: 3px 3px 10px black;
+}
+
+.quiz-footer {
+    border-top: 3px solid var(--light-gray);
+    padding: 10px 0;
+    font-style: italic;
+}
