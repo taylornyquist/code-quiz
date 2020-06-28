@@ -85,8 +85,6 @@ function startQuiz() {
 // Function Next Question
 function setNextQuestion() {
 
-    // var quizQuestions = quizQuestions[currentIndex];
-
     // Loop over each question in the array
     for (var i = 0; i < quizQuestions.length; i++) {
 
@@ -96,43 +94,26 @@ function setNextQuestion() {
         choice3El.textContent = quizQuestions[i].choices[2];
         choice4El.textContent = quizQuestions[i].choices[3];
 
-        debugger;
+        
+
+     
 
         // listen for clicks on the button to determine user's answer
 
-        for (var i = 0; i < quizBtnEl.length; i++) {
-                quizBtn[i].addEventListener("click", function userAnswer(event) {
-                    event.stopPropagtion();
-                    // when any quizBtn is clicked, get value of that option
-            
-                    // if answer is correct:
-                    if(event.currentTarget.innerText === quizQuestions[i].answer) {
-                        console.log("correct answer")
-                    }
-            
-                });
-            }
 
 
-        // compare user answer to correct answer
-        // if (event.currentTarget.innerText === quizQuestions[i].answer) {
-        //     // increase and console log the score
-        //     score++;
-        //     console.log(score);
-
-        //     // display "Correct!" in quiz-footer
-        //     resultEl.textContent = "Correct Answer!";
-        //     console.log(resultEl.textContent);
-        // }
-
-
+     
     }
+
+    
 };
 
 
 
 
-// 
+
+
+
 
 
 
