@@ -36,6 +36,14 @@ body {
     justify-content: space-between;
 }
 
+.clock {
+    display: flex;
+}
+
+.clock div {
+    padding: 0 10px 0 0;
+}
+
 header ul li a {
     text-decoration: none;
     color: var(--light-gray)

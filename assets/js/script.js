@@ -53,7 +53,7 @@ var quizQuestions = [{
 ]
 
 // Defining global variables:
-var timerEl = document.querySelector("#timer");
+var timerEl = document.getElementById("timer");
 
 var questionEl = document.querySelector("#quiz-question");
 
@@ -85,6 +85,9 @@ function startQuiz() {
 // Function Next Question
 function setNextQuestion() {
 
+    // Start Timer
+    countdown();
+
     // Loop over each question in the array
     for (var i = 0; i < quizQuestions.length; i++) {
 
@@ -94,20 +97,38 @@ function setNextQuestion() {
         choice3El.textContent = quizQuestions[i].choices[2];
         choice4El.textContent = quizQuestions[i].choices[3];
 
-        
 
-     
+
+
 
         // listen for clicks on the button to determine user's answer
 
 
 
-     
+
     }
 
-    
+
 };
 
+
+// Timer Function
+function countdown() {
+
+    var timeLeft = 30;
+
+    // Use the setInterval() method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function () {
+        if (timeLeft > 0) {
+            timerEl.textContent =timeLeft;
+            timeLeft--;
+
+        } else {
+            timerEl.textContent = timeLeft;
+            clearInterval(timeInterval);
+        }
+    }, 1000);
+}
 
 
 
