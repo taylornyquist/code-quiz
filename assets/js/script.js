@@ -19,8 +19,7 @@
 // center container with questions and answer that is dynamic
 
 // Array of quiz questions:
-var quizQuestions = [
-    {
+var quizQuestions = [{
         question: "In JavaScript, what element is used to store multiple values in a single variable?",
         choices: ["Strings", "Arrays", "Variables", "Functions"],
         answer: "Arrays"
@@ -58,18 +57,26 @@ var timerEl = document.querySelector("#timer");
 
 var questionEl = document.querySelector("#quiz-question");
 
-var choice1El = document.querySelector("#choice1").innerHTML;
-var choice2El = document.querySelector("#choice2").innerHTML;
-var choice3El = document.querySelector("#choice3").innerHTML;
-var choice4El = document.querySelector("#choice4").innerHTML;
+var startBtnEl = document.querySelector("#start-btn");
+var choice1El = document.querySelector("#choice1");
+var choice2El = document.querySelector("#choice2");
+var choice3El = document.querySelector("#choice3");
+var choice4El = document.querySelector("#choice4");
 
 var resultEl = document.querySelector("result");
 
 var score = 0;
 
+// Start Quiz Function
+function startQuiz() {
+    console.log("started");
+
+}
+
+
 // Loop over each question in the array
-for (var i=0; i < quizQuestions.length; i++) {
-    questionEl.textContent = quizQuestions[i].question;
+for (var i = 0; i < quizQuestions.length; i++) {
+    // questionEl.textContent = quizQuestions[i].question;
     // console.log(quizQuestions[i].question);
 };
 
@@ -82,6 +89,7 @@ for (var i=0; i < quizQuestions.length; i++) {
 
 
 // Event listeners
+startBtnEl.addEventListener("click", startQuiz);
 // choice1El.addEventListener("click", sendThisToAFunction);
 // choice2El.addEventListener("click", sendThisToAFunction);
 // choice3El.addEventListener("click", sendThisToAFunction);
