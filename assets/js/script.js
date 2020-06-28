@@ -20,35 +20,35 @@
 
 // Array of quiz questions:
 var quizQuestions = [{
-        question: "In JavaScript, what element is used to store multiple values in a single variable?",
-        choices: ["Strings", "Arrays", "Variables", "Functions"],
-        answer: "Arrays"
-    },
-    {
-        question: "NaN stands for:",
-        choices: ["Numbers-aNonymous", "Not-any-Nannies", "Not-a-Number", "No-absolutely-Not"],
-        answer: "Not-a-Number"
-    },
-    {
-        question: "In JavaScript, what element is used to store and manipulate text?",
-        choices: ["Strings", "Variables", "Arrays", "Function"],
-        answer: "Strings"
-    },
-    {
-        question: "Where is the JavaScript placed inside an HTML document or page?",
-        choices: ["Body & Head", "Meta", "Title", "Footer"],
-        answer: "Body & Head"
-    },
-    {
-        question: "What is the type of loop that continues through a block of code as long as the specified condition remains TRUE?",
-        choices: ["Conditional Loop", "For Loop", "Else Loop", "While Loop"],
-        answer: "While Loop"
-    },
-    {
-        question: "What is considered to be the most popular programming lanugage in the world?",
-        choices: ["JavaScript", "Swift", "HTML", "Ruby"],
-        answer: "JavaScript"
-    },
+    question: "In JavaScript, what element is used to store multiple values in a single variable?",
+    choices: ["Strings", "Arrays", "Variables", "Functions"],
+    answer: "Arrays"
+},
+{
+    question: "NaN stands for:",
+    choices: ["Numbers-aNonymous", "Not-any-Nannies", "Not-a-Number", "No-absolutely-Not"],
+    answer: "Not-a-Number"
+},
+{
+    question: "In JavaScript, what element is used to store and manipulate text?",
+    choices: ["Strings", "Variables", "Arrays", "Function"],
+    answer: "Strings"
+},
+{
+    question: "Where is the JavaScript placed inside an HTML document or page?",
+    choices: ["Body & Head", "Meta", "Title", "Footer"],
+    answer: "Body & Head"
+},
+{
+    question: "What is the type of loop that continues through a block of code as long as the specified condition remains TRUE?",
+    choices: ["Conditional Loop", "For Loop", "Else Loop", "While Loop"],
+    answer: "While Loop"
+},
+{
+    question: "What is considered to be the most popular programming lanugage in the world?",
+    choices: ["JavaScript", "Swift", "HTML", "Ruby"],
+    answer: "JavaScript"
+},
 
 ]
 
@@ -57,7 +57,14 @@ var timerEl = document.querySelector("#timer");
 
 var questionEl = document.querySelector("#quiz-question");
 
+// Section id's (used for hidden/shown)
+var startSecEl = document.getElementById("start-sec");
+var quizSecEl = document.getElementById("quiz-sec")
+
 var startBtnEl = document.querySelector("#start-btn");
+
+var quizBtnEl = document.querySelectorAll("quiz-btn");
+
 var choice1El = document.querySelector("#choice1");
 var choice2El = document.querySelector("#choice2");
 var choice3El = document.querySelector("#choice3");
@@ -65,24 +72,67 @@ var choice4El = document.querySelector("#choice4");
 
 var resultEl = document.querySelector("result");
 
+var currentIndex = 0;
 var score = 0;
 
 // Start Quiz Function
 function startQuiz() {
-    console.log("started");
-
+    startSecEl.classList.add("hidden");
+    quizSecEl.classList.remove("hidden");
+    setNextQuestion()
 }
 
+// Function Next Question
+function setNextQuestion() {
 
-// Loop over each question in the array
-for (var i = 0; i < quizQuestions.length; i++) {
-    // questionEl.textContent = quizQuestions[i].question;
-    // console.log(quizQuestions[i].question);
+    // var quizQuestions = quizQuestions[currentIndex];
+
+    // Loop over each question in the array
+    for (var i = 0; i < quizQuestions.length; i++) {
+
+        questionEl.textContent = quizQuestions[i].question;
+        choice1El.textContent = quizQuestions[i].choices[0];
+        choice2El.textContent = quizQuestions[i].choices[1];
+        choice3El.textContent = quizQuestions[i].choices[2];
+        choice4El.textContent = quizQuestions[i].choices[3];
+
+        debugger;
+
+        // listen for clicks on the button to determine user's answer
+
+        for (var i = 0; i < quizBtnEl.length; i++) {
+                quizBtn[i].addEventListener("click", function userAnswer(event) {
+                    event.stopPropagtion();
+                    // when any quizBtn is clicked, get value of that option
+            
+                    // if answer is correct:
+                    if(event.currentTarget.innerText === quizQuestions[i].answer) {
+                        console.log("correct answer")
+                    }
+            
+                });
+            }
+
+
+        // compare user answer to correct answer
+        // if (event.currentTarget.innerText === quizQuestions[i].answer) {
+        //     // increase and console log the score
+        //     score++;
+        //     console.log(score);
+
+        //     // display "Correct!" in quiz-footer
+        //     resultEl.textContent = "Correct Answer!";
+        //     console.log(resultEl.textContent);
+        // }
+
+
+    }
 };
 
 
 
 
+// 
 
 
 
@@ -90,7 +140,8 @@ for (var i = 0; i < quizQuestions.length; i++) {
 
 // Event listeners
 startBtnEl.addEventListener("click", startQuiz);
-// choice1El.addEventListener("click", sendThisToAFunction);
-// choice2El.addEventListener("click", sendThisToAFunction);
-// choice3El.addEventListener("click", sendThisToAFunction);
-// choice4El.addEventListener("click", sendThisToAFunction);
+
+// choice1El.addEventListener("click", compareFunction);
+// choice2El.addEventListener("click", compareFunction);
+// choice3El.addEventListener("click", compareFunction);
+// choice4El.addEventListener("click", compareFunction);
