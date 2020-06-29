@@ -82,6 +82,14 @@ function startQuiz() {
     setNextQuestion()
 }
 
+// Function Selected Answer: which button did user click
+function selectedAnswer() {
+    var userAnswer = event.currentTarget.textContent;
+    console.log(userAnswer);
+    selectedAnswer();
+
+}
+
 // Function Next Question
 function setNextQuestion() {
 
@@ -96,12 +104,28 @@ function setNextQuestion() {
         choice2El.textContent = quizQuestions[i].choices[1];
         choice3El.textContent = quizQuestions[i].choices[2];
         choice4El.textContent = quizQuestions[i].choices[3];
+        
+        var answer = quizQuestions[i].answer;
+
+        
+
+        if (userAnswer === answer) {
+            console.log("correct");
+        }
 
 
 
 
 
         // listen for clicks on the button to determine user's answer
+        // function selectedAnswer(e) {
+        //     var selectedButton = e.target;
+        //     if (selectedButton.answer === quizQuestions[i].answer)
+        //         console.log(slectedButton.answer);
+
+        // }
+
+
 
 
 
@@ -120,7 +144,7 @@ function countdown() {
     // Use the setInterval() method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
         if (timeLeft > 0) {
-            timerEl.textContent =timeLeft;
+            timerEl.textContent = timeLeft;
             timeLeft--;
 
         } else {
@@ -143,7 +167,7 @@ function countdown() {
 // Event listeners
 startBtnEl.addEventListener("click", startQuiz);
 
-// choice1El.addEventListener("click", compareFunction);
-// choice2El.addEventListener("click", compareFunction);
-// choice3El.addEventListener("click", compareFunction);
-// choice4El.addEventListener("click", compareFunction);
+choice1El.addEventListener("click", selectedAnswer);
+choice2El.addEventListener("click", selectedAnswer);
+choice3El.addEventListener("click", selectedAnswer);
+choice4El.addEventListener("click", selectedAnswer);
